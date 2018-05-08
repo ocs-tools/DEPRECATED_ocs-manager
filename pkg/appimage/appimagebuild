@@ -4,9 +4,9 @@ PKGNAME='ocs-manager'
 PKGVER='0.6.1'
 PKGREL='1'
 
-curl -fsSL -o linuxdeployqt.AppImage https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
-chmod 755 linuxdeployqt.AppImage
-./linuxdeployqt.AppImage --appimage-extract
+curl -fsSL -o linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+chmod 755 linuxdeployqt
+./linuxdeployqt --appimage-extract
 
 ./scripts/prepare
 qmake PREFIX=/usr
