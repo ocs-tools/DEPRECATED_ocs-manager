@@ -32,7 +32,7 @@ ci_appimage() { # docker-image: ubuntu:14.04
 
     su -c "export HOME=/home/${PKGUSER} && source /opt/qt59/bin/qt59-env.sh && "${PKGSCRIPT}" build_appimage" ${PKGUSER}
 
-    transfer_file "$(find "${BUILDDIR}" -type f -name "${PKGNAME}*.AppImage")"
+    transfer_file "$(find "${BUILDDIR}" -type f -name "${PKGNAME}*-x86_64.AppImage")"
 }
 
 build_appimage() {
