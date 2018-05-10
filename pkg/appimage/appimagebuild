@@ -15,6 +15,7 @@ make INSTALL_ROOT="${PKGNAME}.AppDir" install
 
 ./squashfs-root/AppRun ${PKGNAME}.AppDir/usr/share/applications/${PKGNAME}.desktop -bundle-non-qt-libs -no-translations
 
+install -D -m 755 /usr/lib/x86_64-linux-gnu/libfontconfig.so.1 ${PKGNAME}.AppDir/usr/lib/libfontconfig.so.1
 install -D -m 755 /usr/lib/x86_64-linux-gnu/libfreetype.so.6 ${PKGNAME}.AppDir/usr/lib/libfreetype.so.6
 install -D -m 755 /lib/x86_64-linux-gnu/libssl.so.1.0.0 ${PKGNAME}.AppDir/usr/lib/libssl.so.1.0.0
 install -D -m 755 /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 ${PKGNAME}.AppDir/usr/lib/libcrypto.so.1.0.0
