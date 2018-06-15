@@ -160,12 +160,26 @@ void UpdateHandler::updateAppImage(const QString &itemKey)
     metadata["installed_item_obj"] = installedItem;
     metadata["new_filename"] = filename;
 
+    QString assembledNewFilename = "";
+    QString rawNewFilename = "";
+
     auto updateInformation = updater->describeAppImage();
     for (const auto &info : updateInformation.split("\n")) {
         if (info.endsWith(".zsync", Qt::CaseInsensitive)) {
-            metadata["new_filename"] = info.split("|").last().split("/").last().replace(".zsync", "", Qt::CaseInsensitive);
-            break;
+            if (info.startsWith("Assembled ZSync URL:", Qt::CaseInsensitive)) {
+                assembledNewFilename = info.split("/").last().replace(".zsync", "", Qt::CaseInsensitive);
+            }
+            else if (info.startsWith("Raw update information:", Qt::CaseInsensitive)) {
+                rawNewFilename = info.split("|").last().split("/").last().replace(".zsync", "", Qt::CaseInsensitive);
+            }
         }
+    }
+
+    if (!assembledNewFilename.isEmpty()) {
+        metadata["new_filename"] = assembledNewFilename;
+    }
+    else if (!rawNewFilename.isEmpty() && !rawNewFilename.contains("*")) {
+        metadata["new_filename"] = rawNewFilename;
     }
 
     metadataSet_[itemKey] = metadata;
