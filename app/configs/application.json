@@ -1,7 +1,7 @@
 {
     "id": "ocs-manager",
     "name": "ocs-manager",
-    "version": "0.6.4",
+    "version": "0.6.5",
     "organization": "Opendesktop.org",
     "domain": "org.opendesktop.ocs-manager",
     "icon": ":/desktop/ocs-manager.svg",
