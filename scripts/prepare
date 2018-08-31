@@ -14,6 +14,6 @@ fi
 if [[ ! -d "${PROJDIR}/lib/AppImageUpdate-prebuilt" ]]; then
     mkdir "${PROJDIR}/lib/AppImageUpdate-prebuilt"
     cd "${PROJDIR}/lib/AppImageUpdate-prebuilt"
-    cmake "${PROJDIR}/lib/AppImageUpdate" -DUSE_SYSTEM_CURL=ON -DBUILD_CPR_TESTS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    cmake "${PROJDIR}/lib/AppImageUpdate" -DBUILD_QT_UI=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo
     make libappimageupdate_static
 fi
