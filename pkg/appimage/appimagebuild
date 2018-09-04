@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PKGNAME='ocs-manager'
 PKGVER='0.6.5'
